@@ -1,0 +1,8 @@
+2023/02/22 22:40:42 ファイルに書き込む
+2023/02/22 22:40:42 A
+2023/02/22 22:40:42.926759 B
+22:40:42 log.go:54: C
+22:40:42 C:/Users/MH/go/src/golangStudy/lesson15/log/log.go:57: D
+[LOG]2023/02/22 22:40:42 E
+[LOG]2023/02/22 22:40:42 message
+[LOG]2023/02/22 22:40:42 Exit open fdafdsafa: The system cannot find the file specified.
