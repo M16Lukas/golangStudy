@@ -7,7 +7,6 @@ import "fmt"
 * interface　異なる型に共通の性質を付与する
 --------------------------------------------------
 */
-
 type Stringfy interface {
 	ToString() string
 }
@@ -32,7 +31,25 @@ func (c *Car) ToString() string {
 
 /*
 --------------------------------------------------
-* interface　カスタムエラー
+* interface　タイプアサーションとswitch type文
+* タイプアサーション　：interface型 → 他の型　　　　　ex) x.(int)
+* キャスト　　　　　　：interfaceではない型 → 他の型　ex) float64(x)
+--------------------------------------------------
+*/
+func Do(i interface{}) {
+	switch v := i.(type) {
+	case int:
+		fmt.Println(v * 2)
+	case string:
+		fmt.Println(v + "!")
+	default:
+		fmt.Printf("I dont know %T\n", v)
+	}
+}
+
+/*
+--------------------------------------------------
+* interface　カスタムエラー：Error()
 --------------------------------------------------
 */
 type MyError struct {
@@ -50,7 +67,8 @@ func RaiseError() error {
 
 /*
 --------------------------------------------------
-* interface　Stringer
+* interface　Stringer：String()
+* fmtパッケージの出力をカスタムする(string型)
 --------------------------------------------------
 */
 // type Stringer interface {
@@ -70,6 +88,7 @@ func main() {
 	/* --------------------------------------------------
 	* interface　異なる型に共通の性質を付与する
 	--------------------------------------------------*/
+	// interfaceで指定したメソッドを持っていないとエラーになる
 	vs := []Stringfy{
 		&Person{Name: "Taro", Age: 21},
 		&Car{Number: "123-456", Model: "AB-1234"},
@@ -80,6 +99,13 @@ func main() {
 	}
 	// Name=Taro, Age=21
 	// Number=123-456, Model=AB-1234
+
+	/*　--------------------------------------------------
+	* interface　タイプアサーションとswitch type文
+	--------------------------------------------------*/
+	Do(10)     // 12
+	Do("Mike") // Mike!
+	Do(false)  // I dont know bool
 
 	/* --------------------------------------------------
 	* interface　カスタムエラー

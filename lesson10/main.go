@@ -52,7 +52,7 @@ func (u *User) SetNameV2(name string) {
 
 /*
 -------------------------------------------------------------
-* struct 埋め込み
+* struct 埋め込み(Embedded)
 -------------------------------------------------------------
 */
 type T struct {
@@ -65,7 +65,7 @@ func (u *User) SetNameV3() {
 
 /*
 -------------------------------------------------------------
-* struct 型コンストラクタ
+* struct型 コンストラクタ
 -------------------------------------------------------------
 */
 func NewUser(name string, age int) *User {
@@ -126,13 +126,13 @@ func main() {
 	// アドレス演算子をつけて宣言することが多い
 	// 関数の引数として、構造体の変数を渡す場合にポインタ型をよく使う
 	user7 := &User{}
-	fmt.Println(user7) // &{ 0}
+	fmt.Printf("%T %v\n", user7, user7) // *main.User &{ 0}
 
 	UpdateUser(user1)
 	UpdateUser2(user7)
 
-	fmt.Println(user1) // {user1 10}
-	fmt.Println(user7) // &{A 1000}
+	fmt.Printf("%T %v\n", user1, user1) // main.User {user1 10}
+	fmt.Printf("%T %v\n", user7, user7) // *main.User &{A 1000}
 
 	/* -------------------------------------------------------------
 	* struct メソッド
@@ -151,7 +151,7 @@ func main() {
 	user9.SayName() // B
 
 	/* -------------------------------------------------------------
-	* struct 埋め込み
+	* struct 埋め込み(Embedded)
 	-------------------------------------------------------------*/
 	t := T{
 		User: User{Name: "user10", Age: 10},

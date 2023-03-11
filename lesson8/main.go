@@ -53,13 +53,13 @@ func main() {
 	fmt.Println(sl6) // [100 200 300 400 500 600]
 
 	// make
-	sl7 := make([]int, 5)
-	fmt.Println(sl7) // [0 0 0 0 0]
+	sl7 := make([]int, 5) // 長さ ＝ キャパシティー ＝ 5
+	fmt.Println(sl7)      // [0 0 0 0 0]
 
 	// len
 	fmt.Println(len(sl7)) // 5
 
-	// cap(容量)
+	// cap：容量
 	fmt.Println(cap(sl7)) // 5
 
 	sl8 := make([]int, 5, 10)
@@ -105,7 +105,7 @@ func main() {
 	fmt.Println(Sum(sl12...)) // 6
 
 	/* -----------------------------------------------------------
-	 * マップ
+	 * map
 	 ------------------------------------------------------------*/
 	// 明示的宣言
 	var m = map[string]int{"A": 100, "B": 200}

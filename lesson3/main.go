@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 // 型
@@ -59,7 +60,7 @@ func main() {
 
 	/* ---------------------------------------------------------------------
 	 * uint(+の整数), complex(複素数)型
-	 * ・あまり使用頻度はない
+	 * あまり使用されない
 	---------------------------------------------------------------------*/
 
 	var u8 uint = 255
@@ -103,6 +104,10 @@ func main() {
 	// 文字列は byte配列の集まり
 	fmt.Println(s[0])         // 72
 	fmt.Println(string(s[0])) // H
+
+	// 文字列の変更
+	fmt.Println(strings.Replace(s, "H", "X", 1)) // Xello Golang
+	fmt.Println(s)                               // Hello Golang
 
 	/* ---------------------------------------------------------------------
 	 * byte(uint8)型
